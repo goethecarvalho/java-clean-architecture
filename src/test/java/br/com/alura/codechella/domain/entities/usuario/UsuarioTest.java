@@ -14,4 +14,16 @@ public class UsuarioTest {
         Assertions.assertThrows(IllegalArgumentException.class,
                 () -> new Usuario("", "Jacque", LocalDate.parse("1990-09-08"), "email@email.com"));
     }
+
+    @Test
+    public void deveCriarUsuarioUsandoFabricaDeUsuario(){
+        FabricaDeUsuario fabrica = new FabricaDeUsuario();
+        Usuario usuario = fabrica.comNomeCpfNascimento("Clarice", "123.456.789-01", LocalDate.parse("2014-01-08"));
+
+        Assertions.assertEquals("Clarice",usuario.getNome());
+
+        usuario = fabrica.incluirEndereco("60192-022", 40, "apto 201");
+
+        Assertions.assertEquals("apto 201", usuario.getEndereco().getComplemento());
+    }
 }
