@@ -9,7 +9,6 @@ public class Usuario {
     private String nome;
     private LocalDate nascimento;
     private String email;
-
     private Endereco endereco;
 
     public Usuario(String cpf, String nome, LocalDate nascimento, String email) {
